@@ -1,0 +1,117 @@
+{
+  "contractName": "PegaxyNftStaking",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.7+commit.e28d00a7\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/PegaxyNftStaking.sol\":\"PegaxyNftStaking\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/PegaxyNftStaking.sol\":{\"keccak256\":\"0xb052744f41fb90ad6eb4465da05ed05e66a694a85b55387845f3864b0a11f752\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6264b56a72b6d7ac3476d71fb15d81847a02b28911151a6913b60ab7176d749a\",\"dweb:/ipfs/QmZ2v7v47A99pPNP44msp27jKaC6G7Ra2u7WZ4y45AR5dz\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea264697066735822122035b8d152792755f7bb0f9f953730ee08c1a8bb94230e7f177237076651ab05d664736f6c63430008070033",
+  "deployedBytecode": "0x6080604052600080fdfea264697066735822122035b8d152792755f7bb0f9f953730ee08c1a8bb94230e7f177237076651ab05d664736f6c63430008070033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "60:36:1:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "60:36:1:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.7;\r\n\r\ncontract PegaxyNftStaking {\r\n    \r\n}",
+  "sourcePath": "D:\\Shah Faisal\\Projects\\pegacy-nft-staking\\contracts\\PegaxyNftStaking.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/PegaxyNftStaking.sol",
+    "exportedSymbols": {
+      "PegaxyNftStaking": [
+        35
+      ]
+    },
+    "id": 36,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 34,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".7"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:23:1"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 35,
+        "linearizedBaseContracts": [
+          35
+        ],
+        "name": "PegaxyNftStaking",
+        "nameLocation": "69:16:1",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 36,
+        "src": "60:36:1",
+        "usedErrors": []
+      }
+    ],
+    "src": "33:63:1"
+  },
+  "legacyAST": {
+    "absolutePath": "project:/contracts/PegaxyNftStaking.sol",
+    "exportedSymbols": {
+      "PegaxyNftStaking": [
+        35
+      ]
+    },
+    "id": 36,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 34,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".7"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:23:1"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 35,
+        "linearizedBaseContracts": [
+          35
+        ],
+        "name": "PegaxyNftStaking",
+        "nameLocation": "69:16:1",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 36,
+        "src": "60:36:1",
+        "usedErrors": []
+      }
+    ],
+    "src": "33:63:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.7+commit.e28d00a7.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.4",
+  "updatedAt": "2022-04-04T07:44:22.857Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
