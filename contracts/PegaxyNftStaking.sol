@@ -1,14 +1,12 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
-import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol";
 
-
-contract PegaxyNftStaking is ERC721, Ownable, IERC721Receiver  {
+contract PegaxyNftStaking is ERC721, Ownable  {
     ERC721 private nft;
     ERC20 private token;
 
@@ -115,7 +113,7 @@ contract PegaxyNftStaking is ERC721, Ownable, IERC721Receiver  {
       LpToken memory staked = vault[tokenId];
       require(staked.owner == account, "not an owner");
       uint256 stakedAt = staked.timestamp;
-      earned = stakeReward(stakedAt);
+      earned += stakeReward(stakedAt);
       vault[tokenId] = LpToken({
         owner: account,
         tokenId: uint256(tokenId),
@@ -145,16 +143,5 @@ contract PegaxyNftStaking is ERC721, Ownable, IERC721Receiver  {
   function setRewardRate(uint256 _rate) public onlyOwner{
     rewardRate = _rate;
   }
-
-
-  function onERC721Received(
-        address,
-        address from,
-        uint256,
-        bytes calldata
-    ) external pure override returns (bytes4) {
-      require(from == address(0x0), "Cannot send nfts to Vault directly");
-      return IERC721Receiver.onERC721Received.selector;
-    }
   
 }
