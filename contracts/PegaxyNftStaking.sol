@@ -12,9 +12,9 @@ contract PegaxyNftStaking is ERC721, Ownable  {
 
     // uint256 rewardDuration = 1209600;
     uint256 public rewardDuration = 120;
-    uint256 public rewardRate = 50000000000000000000;
+    uint256 public rewardRate = 0;
     uint256 public totalStaked;
-    address private treasuryWallet = 0xb221C202cF15E088B5DF9C60e7C919A193830806;
+    address public treasuryWallet = 0xaE53cA7d620F21a74d7088DbBB38e48C13df9032;
   
   // struct to store a stake's token, owner, and earning values
   struct LpToken {
@@ -30,10 +30,16 @@ contract PegaxyNftStaking is ERC721, Ownable  {
 
   // maps tokenId to stake
   mapping(uint256 => LpToken) public vault; 
+  mapping(address => uint256[]) public ownerList;
 
    constructor(address nftContractAddress, address rewardTokenAddress) ERC721("PegaxyLP Token", "PXLP") { 
     nft = ERC721(nftContractAddress);
     token = ERC20(rewardTokenAddress);
+  }
+
+  //view functions
+  function ownerListSize(address account) public view returns(uint256[] memory) {
+    return ownerList[account];
   }
 
   // Mint LP token
@@ -63,12 +69,12 @@ contract PegaxyNftStaking is ERC721, Ownable  {
       tokenId = tokenIds[i];
       require(nft.ownerOf(tokenId) == msg.sender, "You are not owner of this token");
       require(vault[tokenId].tokenId == 0, "This token is already staked");
+      ownerList[msg.sender].push(tokenId);
 
       nft.transferFrom(msg.sender, treasuryWallet, tokenId);
       emit NFTStaked(msg.sender, tokenId, block.timestamp);
 
       mintLpToken(tokenId, msg.sender);
-
     }
   }
 
@@ -80,7 +86,8 @@ contract PegaxyNftStaking is ERC721, Ownable  {
       tokenId = tokenIds[i];
       LpToken memory staked = vault[tokenId];
       require(staked.owner == msg.sender, "You are not owner of this token");
-      
+      _remove(account, tokenId);
+
       burnLpToken(tokenId);
       emit NFTUnstaked(account, tokenId, block.timestamp);
       nft.transferFrom(treasuryWallet, account, tokenId);
@@ -131,6 +138,14 @@ contract PegaxyNftStaking is ERC721, Ownable  {
     emit Claimed(account, earned);
   }
 
+//helper functions
+  function _remove(address account, uint256 _tokenIdToRemove) internal {
+    for(uint i=0; i < ownerList[account].length; i++){
+      if(ownerList[account][i] == _tokenIdToRemove){
+        delete ownerList[account][i];
+      }
+    }
+  }
 
   function setTreasuryWallet(address _account) public onlyOwner{
     treasuryWallet = _account;
@@ -143,5 +158,4 @@ contract PegaxyNftStaking is ERC721, Ownable  {
   function setRewardRate(uint256 _rate) public onlyOwner{
     rewardRate = _rate;
   }
-  
 }
